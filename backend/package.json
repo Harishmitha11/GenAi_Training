@@ -1,0 +1,14 @@
+{
+  "name": "react-demo-backend",
+  "version": "1.0.0",
+  "description": "Backend for ReAct demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "openai": "^3.3.0"
+  }
+}
