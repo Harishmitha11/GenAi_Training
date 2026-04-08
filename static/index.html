@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM-Orchestrated ETL Pipeline</title>
+    <meta name="description" content="An educational platform demonstrating classic ETL enhanced with LangChain and Pandas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Data Flow <span>Orchestrator</span></h1>
+                <p>AI-Powered ETL Pipeline Demonstration</p>
+            </div>
+        </header>
+
+        <section class="etl-interface">
+            <div class="upload-card glass-panel">
+                <div class="card-header">
+                    <h2>1. Extract</h2>
+                    <span class="badge">CSV Input</span>
+                </div>
+                <p>Click below to begin the pipeline using the default <strong>raw_dataset.csv</strong></p>
+                <div class="file-info" id="file-info" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 1.5rem; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px;">
+                    <button class="btn btn-primary" id="run-pipeline-btn">Run Pipeline on Default Dataset</button>
+                </div>
+            </div>
+
+            <div class="status-card glass-panel flex-col">
+                <div class="card-header">
+                    <h2>2. Transform & Load</h2>
+                    <span class="badge">LangChain + Pandas</span>
+                </div>
+                
+                <div class="pipeline-status">
+                    <ul class="status-steps" id="status-steps">
+                        <li class="step" id="step-extract">
+                            <div class="step-indicator"></div>
+                            <span>Extracting Data</span>
+                        </li>
+                        <li class="step" id="step-pandas">
+                            <div class="step-indicator"></div>
+                            <span>Deterministic Cleaning (Pandas)</span>
+                        </li>
+                        <li class="step" id="step-langchain">
+                            <div class="step-indicator"></div>
+                            <span>Semantic Guardrails (LangChain)</span>
+                        </li>
+                        <li class="step" id="step-load">
+                            <div class="step-indicator"></div>
+                            <span>Loading to SQLite</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="loading-overlay hidden" id="loading-overlay">
+                    <div class="spinner"></div>
+                    <p>Processing with AI...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="report-section hidden" id="report-section">
+            <div class="report-card glass-panel">
+                <div class="card-header">
+                    <h2>3. Execution Report</h2>
+                    <span class="badge success">Pipeline Complete</span>
+                </div>
+                
+                <div class="metrics-grid" id="metrics-grid">
+                    <div class="metric-box">
+                        <h4>Duration</h4>
+                        <span class="value" id="metric-duration">-</span>
+                    </div>
+                    <div class="metric-box">
+                        <h4>Rows In</h4>
+                        <span class="value" id="metric-in">-</span>
+                    </div>
+                    <div class="metric-box">
+                        <h4>Rows Out</h4>
+                        <span class="value" id="metric-out">-</span>
+                    </div>
+                    <div class="metric-box">
+                        <h4>Nulls Dropped</h4>
+                        <span class="value" id="metric-nulls">-</span>
+                    </div>
+                </div>
+
+                <div class="charts-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div class="chart-container" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Role Types</h4>
+                        <canvas id="deptChart"></canvas>
+                    </div>
+                    <div class="chart-container" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); text-align: center;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em;">Age Demographics</h4>
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="audit-log">
+                    <h3>Audit Trail</h3>
+                    <div class="terminal" id="audit-terminal">
+                        <!-- Logs injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+id,name,email,job_title,age
+1,Alice Doe,alice@test.com,Senior Software Dev,29
+2,Bob Smith,bob@test.com,marketing wizard,
+3,Charlie,NULL,VP of Sales,Forty-Two
+4,David,david@invalid,data guy,25
+5,Eve,eve@corp.com,Human Resources manager,34
+6,Frank,blank,Sr. Data Engg,twenty-eight
+7,,,Ghost,
+8,Grace H.,grace@test.com,CTO,45
